@@ -17,7 +17,7 @@ namespace MyCompany.ProjectName.DataAccess
         {
             return await DataBase(async db =>
              {
-                 var result = await db.QueryAsync<Hotel>(sql: "sp_name", param: null, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+                 var result = await db.QueryAsync<Hotel>(sql: "[dbo].[spGetHotels]", param: null, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
                  return result.AsList();
              }).ConfigureAwait(false);
         }
